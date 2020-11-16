@@ -2,17 +2,14 @@
 
 <?php
 
+include_once "app\paineladm\helpers\helperadm.php";
 
 session_start();
 
-$pg='cpanel';
+$pg = 'cpanel';
 
 if (isset($_GET['pg'])) {
-    $pg=$_GET['pg'];
-
-
-
-
+    $pg = $_GET['pg'];
 }
 
 if (isset($_SESSION['usuario'])) {
@@ -20,15 +17,26 @@ if (isset($_SESSION['usuario'])) {
         case 'cpanel':
             include_once "app/paineladm/index.php";
             break;
-        
+
+        case 'sair';
+        // code
+            break;
+
         default:
-        include_once "app/paineladm/index.php";
+            include_once "app/paineladm/index.php";
             break;
     }
+} else {
+//   verifica se foi submetido algum metodo POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    if (verificalogin()) {
+        include_once "app/paineladm/index.php";
+    }
+} else {
+    include_once 'app/paineladm/paginas/login.php';
+}
 
-
-}else {
-    include_once "app/paineladm/paginas/login.php";
 }
 
 

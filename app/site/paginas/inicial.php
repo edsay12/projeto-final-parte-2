@@ -2,7 +2,6 @@
 <div>
 
 
-
 </div>
     <div class="div my-2">
     <script src="app/assets/js/jssor.js" type="text/javascript"></script>
