@@ -1,0 +1,20 @@
+    .u {
+        font-size: 800px;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    body {
+        background-image: linear-gradient(to bottom, white, rgba(0, 217, 255, 0.76));
+        background-repeat: no-repeat;
+    }
+    
+    button {
+        background-image: linear-gradient(to right, white, rgba(3, 191, 238, 0.39));
+    }
+    
+    button:hover {
+        background-image: linear-gradient(to right, purple, rgba(10, 234, 241, 0.486));
+    }
