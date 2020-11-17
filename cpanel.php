@@ -15,28 +15,43 @@ if (isset($_GET['pg'])) {
 if (isset($_SESSION['usuario'])) {
     switch ($pg) {
         case 'cpanel':
-            include_once "app/paineladm/index.php";
+            include_once "app/paineladm/paginas/includes/header.php";
+            include_once "app/paineladm/paginas/includes/navegaçao.php";
+            include_once "app/paineladm/paginas/inicial.php";
+            include_once "app/paineladm/paginas/includes/footer.php";
+            break;
+        case 'contato':
+            include_once "app/site/paginas/contato.php";
+            break;
+        case 'produtos':
+            "app/site/paginas/produtos.php";
             break;
 
         case 'sair';
-        // code
+            session_destroy();
+            header('Location' . $_SERVER['PHP_SELF']);
             break;
 
         default:
-            include_once "app/paineladm/index.php";
+            include_once "app/paineladm/paginas/includes/header.php";
+            include_once "app/paineladm/paginas/includes/navegaçao.php";
+            include_once "app/paineladm/paginas/inicial.php";
+            include_once "app/paineladm/paginas/includes/footer.php";
             break;
     }
 } else {
-//   verifica se foi submetido algum metodo POST
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    if (verificalogin()) {
-        include_once "app/paineladm/index.php";
-    }
-} else {
-    include_once 'app/paineladm/paginas/login.php';
-}
+    //   verifica se foi submetido algum metodo POST
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        if (verificalogin()) {
+            include_once "app/paineladm/paginas/includes/header.php";
+            include_once "app/paineladm/paginas/includes/navegaçao.php";
+            include_once "app/paineladm/paginas/inicial.php";
+            include_once "app/paineladm/paginas/includes/footer.php";
+        }
+    } else {
+        include_once 'app/paineladm/paginas/login.php';
+    }
 }
 
 
