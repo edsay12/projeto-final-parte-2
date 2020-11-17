@@ -180,7 +180,7 @@ if (isset($_SESSION['usuario'])) {
               <img src="app\paineladm/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="#" class="d-block"><?php echo $_SESSION['usuario'] = $usuario; ?></a>
+              <a href="#" class="d-block"><?php echo $_SESSION['usuario']; ?></a>
             </div>
           </div>
 
@@ -977,7 +977,7 @@ if (isset($_SESSION['usuario'])) {
                       <!-- Message. Default to the left -->
                       <div class="direct-chat-msg">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-left"><?php echo $_SESSION['usuario']; ?></span>
+                          <span class="direct-chat-name float-left"><?php echo$_SESSION['usuario']; ?></span>
                           <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                         </div>
                         <!-- /.direct-chat-infos -->
@@ -1009,7 +1009,7 @@ if (isset($_SESSION['usuario'])) {
                       <!-- Message. Default to the left -->
                       <div class="direct-chat-msg">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-left"> <?php echo $_SESSION['usuario'] = $usuario; ?></span>
+                          <span class="direct-chat-name float-left"> <?php echo $_SESSION['usuario']; ?></span>
                           <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                         </div>
                         <!-- /.direct-chat-infos -->
