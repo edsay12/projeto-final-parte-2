@@ -59,12 +59,12 @@
 <div class="social-auth-links text-center mb-3">
                    
                     <button type="submit" class="btn btn-primary btn-block">Logar</button>
-                   <a href="index.php?pg=inicial" class="btn btn-success btn-block">Voltar</a>
+                 
                 </div>
 
                 </form>
-
-                
+                <a href="index.php?pg=inicial"><button  class="btn btn-primary btn-block">Voltar</button></a>
+                  
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">

@@ -2,7 +2,7 @@
 //Header
 include_once "app/site/paginas/includes/header.php";
 //Navegaçao 
-include_once "app/site/paginas/includes/navegacao.php";
+include_once "app/site/paginas/includes/navegaçao.php";
 
 
 

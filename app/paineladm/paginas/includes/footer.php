@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2020-2020 <a href="https://adminlte.io">Luiz Fernando</a>.</strong>
+    <strong>Copyright &copy; 2020-2020 <a href="https://adminlte.io">Edvan Silva</a>.</strong>
     Todos os direitos reservados.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 3.1.0-pre
