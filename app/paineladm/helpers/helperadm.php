@@ -1,22 +1,13 @@
-<?php   
+<?php 
+function verificaSeLogado(){
+$usuario = 'senac';
+$senha = '123456';
 
-function verificalogin()
-{
-  $usuario = 'edsay12@hotmail.com';
-  $senha = '123456';
-
-
-if ($_POST['usuario'] == $usuario) {
-    $_SESSION['usuario']=$usuario;
-    
-return true;
-} else {
-  
- echo 'Senha invalida';
- return FALSE;
-
-  }
-
-
+if($_POST['usuario'] == $usuario){
+   $_SESSION['usuario']=$usuario;
+  return true;
+} else { 
+    echo 'usuario e senha invalida';
+}
 
 }
