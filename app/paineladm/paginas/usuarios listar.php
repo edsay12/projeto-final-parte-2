@@ -30,7 +30,9 @@
                            
                             <!-- /.card-header -->
                             <div class="card-body">
-                            
+                            <a href="" class="btn btn-outline-success  " >
+                            <span class="icon-user mx-1" ></span>   
+                                Novo Usuario</a>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>

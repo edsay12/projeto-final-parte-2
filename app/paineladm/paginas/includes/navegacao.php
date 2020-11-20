@@ -170,6 +170,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
          <li class="nav-item">
+                        <a href="?pg=usuarios" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>usuarios</p>
+                        </a>
+                    </li>
+         <li class="nav-item">
                         <a href="?pg=inicial" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Inicial</p>
