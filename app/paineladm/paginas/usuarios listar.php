@@ -62,9 +62,9 @@
                                              <td><?php echo  $dadosusuarios['datacriaçao']; ?></td>
                                              <td><?php echo  $dadosusuarios['dataatualizaçao']; ?></td>
                                              <td class="text-center">
-                                                 <a class="btn btn-success icon-eye" href="?pg=usuario_visualizar&id= <?php echo $dadosusuarios['id_usuario']  ?>"></a>
-                                                 <a class="btn btn-warning icon-edit-pencil" href="?pg=usuario_editar&id= <?php echo $dadosusuarios['id_usuario']  ?>"></a>
-                                                 <a class="btn btn-danger icon-box" href="?pg=usuario_deletar&id= <?php echo $dadosusuarios['id_usuario']  ?>"></a>
+                                                 <a class="btn btn-success icon-eye" href="?pg=usuario_visualizar&id=<?php echo $dadosusuarios['id_usuario']?>"></a>
+                                                 <a class="btn btn-warning icon-edit-pencil" href="?pg=usuario_editar&id=<?php echo $dadosusuarios['id_usuario']?>"></a>
+                                                 <a class="btn btn-danger icon-box" href="?pg=usuariodeletar&id=<?php echo $dadosusuarios['id_usuario']?>"></a>
                                              </td>
                                          </tr>
                                      <?php   } ?>

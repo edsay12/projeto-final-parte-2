@@ -50,7 +50,23 @@ function inserirusuario()
 }
 
 
+function atualizarusuario(){
 
+$idusuario=trim($_POST['id']);
+$senha=trim($_POST['senha']);
+
+$parametros=array(
+// validando variaveis
+':id_usuario'=>$idusuario,
+':senha'=>$senha
+
+);
+// atualizar banco
+$atualizausuario = new Conexao();
+$atualizausuario ->intervencaonoBanco('UPDATE usuarios SET senha = :senha WHERE id_usuario = :id_usuario,$parametros  ');
+};
+
+include_once "app/paineladm/paginas/usuarios%20listar.php";
 
   //verificar sem precisar d ebanco de dados 
   // $usuario = 'senac';
