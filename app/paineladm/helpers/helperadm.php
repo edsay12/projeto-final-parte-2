@@ -19,18 +19,40 @@ function verificaSeLogado()
     ':usuario' => $usuario,
   );
 
-  $resultadoConsulta = $resultConexao->consultarBanco('SELECT * FROM usuarios Where nome = :usuario',$parametros);
+  $resultadoConsulta = $resultConexao->consultarBanco('SELECT * FROM usuarios Where nome = :usuario', $parametros);
 
-if (count($resultadoConsulta) >0 ) {
- $_SESSION['usuario'] = $usuario;
+  if (count($resultadoConsulta) > 0) {
+    $_SESSION['usuario'] = $usuario;
     return true;
-} else {
-   echo 'usuario ou senha invalida';
+  } else {
+    echo 'usuario ou senha invalida';
+  }
+}
+
+function inserirusuario()
+{
+
+  $nome = $_POST['nome'];
+  $senha = $_POST['senha'];
+
+  $parametros = array(
+
+    ':nome'  => $nome,
+    ':senha'  => password_hash($senha, PASSWORD_DEFAULT)
+
+  );
+
+
+  $resultdados = new Conexao();
+  $resultdados->intervencaonoBanco('INSERT INTO usuarios(nome,senha) VALUES (:nome,:senha)', $parametros);
+
+  include_once "app/paineladm/paginas/usuarios listar.php";
 }
 
 
 
-//verificar sem precisar d ebanco de dados 
+
+  //verificar sem precisar d ebanco de dados 
   // $usuario = 'senac';
   // $senha = '123456';
 
@@ -40,4 +62,3 @@ if (count($resultadoConsulta) >0 ) {
   // } else {
   //  echo 'usuario e senha invalida';
   // }
-}

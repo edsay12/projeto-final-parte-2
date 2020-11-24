@@ -123,7 +123,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link btn" href="cpanel.php?pg=sair">
-          <i class="nav-icon far fa-square text-info"></i>
+          <i class="nav-icon far icon-arrow-left1 text-info"></i>
         </a>
       </li>
       <li class="nav-item">
