@@ -68,29 +68,31 @@ if (isset($_SESSION['usuario'])) {
 
             $deletusuario = new Conexao();
             $deletusuario->intervencaonoBanco('DELETE FROM usuarios where id_usuario = :id_usuario', $parametros);
-            header('location :?pg=usuarios ');
+            header('location: ?pg=usuarios');
             break;
 
         case 'usuario_editar':
             include_once "app/painelAdm/paginas/includes/header.php";
             include_once "app/painelAdm/paginas/includes/navegacao.php";
 
-            if ($_REQUEST['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 atualizarusuario();
             } else {
                 
 
-                // $idusuarioeditar = isset($_GET['id']);
-                // if ($idusuarioeditarn) {
-                //     # code...
-                // } else {
-                //     # code...
-                // };
+
+                 $idusuarioeditar = isset($_GET['id']);
+                 if ($idusuarioeditar) {
+                
+                    $dadosusuario = visualizarusuario($idusuarioeditar);
+                    include_once "app/painelAdm/paginas/usuarioeditar.php";
+                  
+                } else {
+                    header('location: ?pg=usuarios listar');
+           
+                 }
             };
 
-
-
-            include_once "app/painelAdm/paginas/usuarioeditar.php";
 
             include_once "app/painelAdm/paginas/includes/footer.php";
             break;

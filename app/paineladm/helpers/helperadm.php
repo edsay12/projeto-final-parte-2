@@ -13,16 +13,24 @@ function verificaSeLogado()
 {
 
   $usuario = trim($_POST['usuario']);
-  $resultConexao = new conexao();
+  $senha = trim($_POST['senha']);
   $parametros = array(
 
     ':usuario' => $usuario,
   );
-
+ $resultConexao = new conexao();
   $resultadoConsulta = $resultConexao->consultarBanco('SELECT * FROM usuarios Where nome = :usuario', $parametros);
 
   if (count($resultadoConsulta) > 0) {
-    $_SESSION['usuario'] = $usuario;
+    $senha_bd = $resultadoConsulta[0]['senha'];
+    if (password_verify($senha,$senha_bd)) {
+       $_SESSION['usuario'] = $usuario;
+return true;
+    } else {
+      echo 'senha nao confere';
+      return false;
+    }
+    
     return true;
   } else {
     echo 'usuario ou senha invalida';
@@ -34,7 +42,6 @@ function inserirusuario()
 
   $nome = $_POST['nome'];
   $senha = $_POST['senha'];
-
   $parametros = array(
 
     ':nome'  => $nome,
@@ -50,23 +57,46 @@ function inserirusuario()
 }
 
 
-function atualizarusuario(){
+function atualizarusuario()
+{
 
-$idusuario=trim($_POST['id']);
-$senha=trim($_POST['senha']);
+  $idusuario = trim($_POST['id']);
+  $senha = trim($_POST['senha']);
 
-$parametros=array(
-// validando variaveis
-':id_usuario'=>$idusuario,
-':senha'=>$senha
+  $parametros= array(
+    // validando variaveis
+    ':id_usuario' => $idusuario,
+    ':senha' => password_hash($senha, PASSWORD_DEFAULT)
 
-);
-// atualizar banco
-$atualizausuario = new Conexao();
-$atualizausuario ->intervencaonoBanco('UPDATE usuarios SET senha = :senha WHERE id_usuario = :id_usuario,$parametros  ');
+  );
+  // atualizar banco
+  $atualizausuario = new Conexao();
+  $atualizausuario->intervencaonoBanco('UPDATE usuarios SET senha = :senha WHERE id_usuario = :id_usuario', $parametros);
+
+  include_once "app/paineladm/paginas/usuarios%20listar.php";
 };
 
-include_once "app/paineladm/paginas/usuarios%20listar.php";
+
+
+function visualizarusuario($id)
+{
+
+  if ($id) {
+    $parametros = array(
+      ':id_usuario' => $_GET['id']
+
+    );
+
+    $resultusuarioconsulta = new Conexao();
+
+    $dados = $resultusuarioconsulta->consultarBanco('SELECT * FROM usuarios WHERE id_usuario = :id_usuario', $parametros);
+    if (count($dados) > 0) {
+      return $dados;
+    } else {
+      header('location:  ?pg=usuarios listar');
+    }
+  }
+}
 
   //verificar sem precisar d ebanco de dados 
   // $usuario = 'senac';

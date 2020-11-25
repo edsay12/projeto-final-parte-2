@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -25,25 +24,27 @@
 
                 <div class="col-6 alight-itens-center">
 
-                   
-                        <form action="?pg=usuario-novo" method="POST">
+                    <?php foreach ($dadosusuario as $dados) { ?>
+                        <form action="?pg=usuarioeditar" method="POST">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nome</label>
-                                <input type="text" autofocus name="nome" value="<?php   ?>   "   id="usuario" autofocus class="form-control" id="exampleFormControlInput1" >
+                                <input disabled type="text" name="nome" id="nome" value="<?php echo $dados['nome']  ?>" autofocus class="form-control">
                             </div>
-                            
+
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">dataatualizaçao</label>
-                                <input  disabled value=" <?php   echo $dadosusuario['dataatualizaçao']  ?> "  name="senha" id="senha" class="form-control" id="exampleFormControlInput1" >
+                                <label for="exampleFormControlInput1">senha</label>
+                                <input value=" <?php  ?> " name="senha" id="senha" class="form-control" id="exampleFormControlInput1">
                             </div>
+
+                            <input type="" name="id_usuario" value="<?php echo  $dadosusuarios['id_usuario']; ?>" <?php echo $dados["id_usuario"]?>>
                             <div class="text-right">
                                 <a href="cpanel.php?pg=usuarios" class='btn btn-primary'>voltar</a>
-                           <button class="btn btn-danger" >atualizar</button>
+                                <button class="btn btn-danger">atualizar</button>
                             </div>
 
                         </form>
+                    <?php }   ?>
 
-                  
                 </div>
 
 
