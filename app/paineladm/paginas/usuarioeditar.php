@@ -25,7 +25,7 @@
                 <div class="col-6 alight-itens-center">
 
                     <?php foreach ($dadosusuario as $dados) { ?>
-                        <form action="?pg=usuarioeditar" method="POST">
+                        <form action="?pg=usuario_editar" method="POST">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nome</label>
                                 <input disabled type="text" name="nome" id="nome" value="<?php echo $dados['nome']  ?>" autofocus class="form-control">
@@ -36,7 +36,7 @@
                                 <input value=" <?php  ?> " name="senha" id="senha" class="form-control" id="exampleFormControlInput1">
                             </div>
 
-                            <input type="" name="id_usuario" value="<?php echo  $dadosusuarios['id_usuario']; ?>" <?php echo $dados["id_usuario"]?>>
+                            <input type="hidden" name="id_usuario"  value="<?php echo $dados['id_usuario']?>" >
                             <div class="text-right">
                                 <a href="cpanel.php?pg=usuarios" class='btn btn-primary'>voltar</a>
                                 <button class="btn btn-danger">atualizar</button>

@@ -60,7 +60,7 @@ function inserirusuario()
 function atualizarusuario()
 {
 
-  $idusuario = trim($_POST['id']);
+  $idusuario = trim($_POST['id_usuario']);
   $senha = trim($_POST['senha']);
 
   $parametros= array(
@@ -69,11 +69,15 @@ function atualizarusuario()
     ':senha' => password_hash($senha, PASSWORD_DEFAULT)
 
   );
+
+  
+
+
   // atualizar banco
   $atualizausuario = new Conexao();
   $atualizausuario->intervencaonoBanco('UPDATE usuarios SET senha = :senha WHERE id_usuario = :id_usuario', $parametros);
 
-  include_once "app/paineladm/paginas/usuarios%20listar.php";
+  include_once "app/paineladm/paginas/usuarios listar.php";
 };
 
 

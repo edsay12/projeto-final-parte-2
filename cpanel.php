@@ -98,12 +98,33 @@ if (isset($_SESSION['usuario'])) {
             break;
 
 
+            case 'usuariodeletar2':
+                $parametros = array(
+    
+                    ':id_contato' => $_GET['id']
+    
+                );
+    
+                $deletusuario = new Conexao();
+                $deletusuario->intervencaonoBanco('DELETE FROM contato where id_contato = :id_contato', $parametros);
+                header('location: ?pg=contato');
+                break;
+    
+            
+
 
 
         case 'usuario_visualizar':
             include_once "app/painelAdm/paginas/includes/header.php";
             include_once "app/painelAdm/paginas/includes/navegacao.php";
             include_once "app/painelAdm/paginas/usuariovisualizar.php";
+            include_once "app/painelAdm/paginas/includes/footer.php";
+            break;
+            
+        case 'usuario_visualizar2':
+            include_once "app/painelAdm/paginas/includes/header.php";
+            include_once "app/painelAdm/paginas/includes/navegacao.php";
+            include_once "app/painelAdm/paginas/usuariovisualizar2.php";
             include_once "app/painelAdm/paginas/includes/footer.php";
             break;
 
