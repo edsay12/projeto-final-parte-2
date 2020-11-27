@@ -12,7 +12,8 @@ if ($id) {
     );
     $resultadousuario = new Conexao();
     $dados = $resultadousuario->consultarBanco('SELECT * FROM contato where id_contato = :id_contato', $parametros);
-   
+    $resultadousuario->intervencaoNoBanco( 'UPDATE contato SET vizualizar = 1 WHERE id_contato = :id_contato', $parametros);
+    
 } else {
     header("location: ?pg=usuarios listar");
 }
@@ -49,36 +50,36 @@ if ($id) {
                 <div class="col-6 alight-itens-center">
 
                     <?php foreach ($dados as $dadosusuario) {
-                       
+
                     ?>
                         <form action="?pg=usuario-novo" method="POST">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nome</label>
-                                <input type="text" name="nome" disabled value="<?php echo $dadosusuario['nome']?>   "   id="usuario" autofocus class="form-control" id="exampleFormControlInput1" >
+                                <input type="text" name="nome" disabled value="<?php echo $dadosusuario['nome'] ?>   " id="usuario" autofocus class="form-control" id="exampleFormControlInput1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">email</label>
-                                <input  disabled value=" <?php   echo $dadosusuario['email']  ?> "  name="email" id="email" class="form-control" id="exampleFormControlInput1" >
+                                <input disabled value=" <?php echo $dadosusuario['email']?> " name="email" id="email" class="form-control" id="exampleFormControlInput1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">mensagem</label>
-                                <input  disabled value=" <?php   echo $dadosusuario['msg'] ?> "  name="msg" id="msg" class="form-control" id="exampleFormControlInput1" >
+                                <input disabled value=" <?php echo $dadosusuario['msg']?> " name="msg" id="msg" class="form-control" id="exampleFormControlInput1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">datacriaçao</label>
-                                <input  disabled value=" <?php   echo $dadosusuario['datacriaçao']  ?> "  name="datacriaçao" id="datacriaçao" class="form-control" id="exampleFormControlInput1" >
+                                <input disabled value=" <?php echo $dadosusuario['datacriaçao']?> " name="datacriaçao" id="datacriaçao" class="form-control" id="exampleFormControlInput1">
                             </div>
+
+
 
                             <div class="text-right">
                                 <a href="cpanel.php?pg=contato" class='btn btn-primary'>voltar</a>
-                             
+
                             </div>
 
                         </form>
-
+            
+                            
+                        </form>
                     <?php }  ?>
                 </div>
-
-
-
-
