@@ -1,0 +1,1 @@
+$('#erro').delay(1000).fadeOut();

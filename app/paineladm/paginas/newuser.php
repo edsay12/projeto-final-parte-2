@@ -26,7 +26,7 @@
 <div class="col-6 alight-itens-center">
 
 
-<form  action="?pg=usuario-novo" method="POST">
+<form  action="?pg=usuario-novo" method="POST"  enctype="multipart/form-data" >
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome</label>
     <input type="text" name="nome"  id="usuario" autofocus class="form-control" id="exampleFormControlInput1" placeholder="nome do novo usuario">
@@ -35,12 +35,19 @@
     <label for="exampleFormControlInput1">Senha</label>
     <input type="password" name="senha" id="senha" class="form-control" id="exampleFormControlInput1" placeholder="senha do novo usuario">
   </div>
+  <div class="form-group">
+    <label for="img_usuario">Escolha sua foto de perfil</label>
+    <input type="file" class="form-control-file" name="img_usuario" id="img_usuario">
+  </div>
   <div class="text-right">
+
   <a href="cpanel.php?pg=usuarios" class='btn btn-primary'>voltar</a>
   <input type="submit" class='btn btn-primary' value="Novo usuario" >
  </div>
   
 </form>
+
+  
 
 
 </div>

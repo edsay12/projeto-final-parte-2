@@ -46,7 +46,7 @@
                              <table id="example1" class="table table-bordered table-striped">
                                  <thead>
                                      <tr>
-                                         <th>Id</th>
+                                         <th>user_logo</th>
                                          <th>Nome</th>
                                          <th>assunto</th>
                                          <th>mensagem</th>
@@ -57,7 +57,7 @@
 
                                      <?php foreach ($dados as $dadosusuarios) { ?>
                                          <tr>
-                                             <td><?php echo  $dadosusuarios['id_usuario']; ?></td>
+                                             <td><?php echo  $dadosusuarios['img']; ?></td>
                                              <td><?php echo  $dadosusuarios['nome']; ?></td>
                                              <td><?php echo  $dadosusuarios['datacriaçao']; ?></td>
                                              <td><?php echo  $dadosusuarios['dataatualizaçao']; ?></td>

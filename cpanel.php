@@ -151,6 +151,7 @@ if (isset($_SESSION['usuario'])) {
             break;
     }
 } else {
+    $erro;
     //verifica se foi submetido metodo post
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

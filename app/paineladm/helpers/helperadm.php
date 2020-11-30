@@ -18,22 +18,24 @@ function verificaSeLogado()
 
     ':usuario' => $usuario,
   );
- $resultConexao = new conexao();
+  $resultConexao = new conexao();
   $resultadoConsulta = $resultConexao->consultarBanco('SELECT * FROM usuarios Where nome = :usuario', $parametros);
 
   if (count($resultadoConsulta) > 0) {
     $senha_bd = $resultadoConsulta[0]['senha'];
-    if (password_verify($senha,$senha_bd)) {
-       $_SESSION['usuario'] = $usuario;
-return true;
+    if (password_verify($senha, $senha_bd)) {
+      $_SESSION['usuario'] = $usuario;
+      return true;
     } else {
-      echo 'senha nao confere';
+      $erro = 'user and password not working';
+      include_once "app/paineladm/paginas/login.php";
       return false;
     }
-    
+
     return true;
   } else {
-    echo 'usuario ou senha invalida';
+    $erro = 'user and password not working';
+    include_once "app/paineladm/paginas/login.php";
   }
 }
 
@@ -50,6 +52,12 @@ function inserirusuario()
   );
 
 
+  $img_usuario = $_FILES['img_usuario']['tmp_name'];
+  move_uploaded_file($_FILES['img_usuario']['tmp_name'],'app/paineladm/img/' . $_FILES['img_usuario']['name']);
+  die('deu tudo certo'); 
+
+
+
   $resultdados = new Conexao();
   $resultdados->intervencaonoBanco('INSERT INTO usuarios(nome,senha) VALUES (:nome,:senha)', $parametros);
 
@@ -63,15 +71,22 @@ function atualizarusuario()
   $idusuario = trim($_POST['id_usuario']);
   $senha = trim($_POST['senha']);
 
-  $parametros= array(
+  $parametros = array(
     // validando variaveis
     ':id_usuario' => $idusuario,
     ':senha' => password_hash($senha, PASSWORD_DEFAULT)
+    ':img_usuario'=> ($_FILES['img_usuario']['name'] == true);
 
   );
+// echo '<pre>';
+// print_r($_FILES);
+//  die();
+//PEgando a imagem de ususario
+// echo "'app/assets/paineladm/1img . $_FILES['img_usuario']['name']";
 
-  
-
+// $img_usuario = $_FILES['img_usuario']['tmp_name'];
+// move_uploaded_file($_FILES['img_usuario']['tmp_name'],'app/assets/paineladm/1img' . $_FILES['img_usuario']['name']);
+// die('deu tudo certo'); 
 
   // atualizar banco
   $atualizausuario = new Conexao();
